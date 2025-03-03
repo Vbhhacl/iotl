@@ -1,0 +1,35 @@
+void setup()
+{
+ pinMode(8, OUTPUT);
+ pinMode(9, OUTPUT);
+ pinMode(10, OUTPUT);
+}
+int counter=0;
+void loop()
+{
+ counter+=50;
+ if (counter<100)         {
+ digitalWrite(10, HIGH);
+ delay(1000); // Wait for 1000 millisecond(s)
+ digitalWrite(10, LOW);
+ delay(1000); // Wait for 1000 millisecond(s)
+ }
+ else if (counter>=100 && counter<=200)   
+ {
+ digitalWrite(9, HIGH);
+ delay(1000); // (wait for 1000ms)
+digitalWrite(9, LOW);
+ delay(1000); // (wait for 1000ms)
+}
+else if(counter>200&& counter<=300)  
+{
+digitalWrite(8, HIGH);
+ delay(1000);
+digitalWrite(8, LOW);
+ delay(1000); 
+}
+else if(counter>=300)
+{
+counter=0;
+}
+}
