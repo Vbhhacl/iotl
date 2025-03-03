@@ -1,0 +1,27 @@
+void blinkLED (int pin){
+  for (int i = 0; i<5;i++){
+    digitalWrite (pin , HIGH);
+    delay (500);
+    digitalWrite (pin , LOW);
+    delay (500);
+  }
+}
+
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+}
+void loop(){
+  if (Serial.available()){
+    char var = Serial.read();
+    Serial.print(var);
+     
+    if (var == 'r') blinkLED(6);
+    else if (var == 'y') blinkLED(7);
+    else if (var == 'g') blinkLED(8);
+    
+  }
+}
