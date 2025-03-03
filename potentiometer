@@ -1,0 +1,44 @@
+ #define RGB_RED_PIN 11
+ #define RGB_BLUE_PIN 10
+ #define RGB_GREEN_PIN 9
+ #define POTENTIOMETER_PIN A0
+
+void digitalWriteRGB(byte red, byte blue, byte green){
+  digitalWrite(RGB_RED_PIN, red);
+  digitalWrite(RGB_BLUE_PIN, blue);
+  digitalWrite(RGB_GREEN_PIN, green);
+}
+
+void setup() {
+  pinMode(RGB_RED_PIN, OUTPUT);
+  pinMode(RGB_BLUE_PIN, OUTPUT);
+  pinMode(RGB_GREEN_PIN, OUTPUT);
+}
+
+void loop() {
+  int potentiometerValue = analogRead(POTENTIOMETER_PIN);
+  int mode = map(potentiometerValue, 0, 1023, 0, 6);
+
+  if (mode == 0){
+    digitalWriteRGB(HIGH, LOW, LOW); //RED
+  }
+  else if(mode == 1){
+    digitalWriteRGB(LOW, HIGH, LOW); //BLUE
+  }
+   else if(mode == 2){
+    digitalWriteRGB(LOW, LOW, HIGH);  //GREEN
+  }
+   else if(mode == 3){
+    digitalWriteRGB(HIGH, HIGH, LOW); //PURPLE
+  }
+   else if(mode == 4){
+    digitalWriteRGB(LOW, HIGH, HIGH); //YELLOW
+  }
+   else if(mode == 5){
+    digitalWriteRGB(HIGH, HIGH, HIGH); //WHITE
+  }
+   else (mode == 6){
+    digitalWriteRGB(LOW, LOW, LOW); //OFF
+  }
+}
+
