@@ -1,0 +1,20 @@
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("enter a number : ");
+}
+
+
+void loop() {
+  if(Serial.available()>0) {
+   // put your main code here, to run repeatedly
+      int number =Serial.parseInt();
+      int squared = number*number;
+      Serial.print("the square of ");
+      Serial.print(number);
+      Serial.print(" is : ");
+      Serial.print(squared );
+     
+   }
+   delay(1000);
+}
