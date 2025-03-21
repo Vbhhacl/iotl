@@ -1,0 +1,33 @@
+#define IR 2
+#define LED 8
+#define BUZZ 9
+
+
+void setup() {
+  pinMode(IR , INPUT);
+  pinMode(LED , OUTPUT);
+  pinMode(BUZZ , OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() 
+{
+  int value= digitalRead(IR);
+
+  if(value==LOW)
+  {
+    digitalWrite(LED,HIGH);
+    digitalWrite(BUZZ,HIGH);
+    Serial.println(" Obstacal Detected");
+  }
+ 
+ else if(value==HIGH)
+ {
+   digitalWrite(LED,LOW);
+    digitalWrite(BUZZ,LOW);
+    Serial.println("NO Obstacal Detected");
+ }
+ 
+
+}
+
