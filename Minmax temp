@@ -1,0 +1,42 @@
+// Pin where the temperature sensor is connected
+const int tempPin = A0;
+
+// Track min and max temperatures
+float maxTemp = -1000.0;
+float minTemp = 1000.0;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Temperature Monitor Started");
+}
+
+void loop() {
+  int analogValue = analogRead(tempPin);
+
+  // Convert analog value to voltage (assuming 5V Arduino)
+  float voltage = analogValue * (5.0 / 1023.0);
+
+  // Convert voltage to temperature in Celsius (for TMP36)
+  float tempC = (voltage - 0.5) * 100.0;
+
+  // Convert to Fahrenheit
+  float tempF = tempC * 9.0 / 5.0 + 32.0;
+
+  // Update max and min
+  if (tempF > maxTemp) {
+    maxTemp = tempF;
+  }
+  if (tempF < minTemp) {
+    minTemp = tempF;
+  }
+
+  // Print current, max, and min temperatures
+  Serial.print("Current Temp (F): ");
+  Serial.print(tempF);
+  Serial.print(" | Max: ");
+  Serial.print(maxTemp);
+  Serial.print(" | Min: ");
+  Serial.println(minTemp);
+
+  delay(1000); // wait 1 second between readings
+}
