@@ -1,0 +1,38 @@
+Define LED pins
+
+
+
+int ledPin3 = 4;
+
+// Define the delay time for blinking
+int blinkDelay = 1000; // 1000 ms = 1 second
+
+void setup() {
+  // Set the LED pins as output
+ 
+  pinMode(ledPin3, OUTPUT);
+  
+  // Start with LEDs OFF
+  
+  digitalWrite(ledPin3, LOW);
+}
+
+void loop() {
+  // Example 1: Turn LEDs ON for 2 seconds
+  
+  digitalWrite(ledPin3, HIGH);
+  delay(2000); // Wait for 2 seconds
+  
+  // Example 2: Turn LEDs OFF for 2 seconds
+  
+  digitalWrite(ledPin3, LOW);
+  delay(2000); // Wait for 2 seconds
+  
+  // Example 3: Blink LEDs with a 1-second delay
+ 
+  digitalWrite(ledPin3, HIGH);
+  delay(blinkDelay); // LEDs ON for 1 second
+  
+  digitalWrite(ledPin3, LOW);
+  delay(blinkDelay); // LEDs OFF for 1 second
+}
