@@ -1,0 +1,65 @@
+// Define pin numbers 5
+
+const int irSensorPin = 2;
+
+const int buttonPin = 3;
+
+ const int ledPin 13; // Built-in LED
+void setup() {
+
+pinMode(irSensorPin, INPUT);
+ pinMode(buttonPin, INPUT_PULLUP); // Enable
+pinMode(ledPin, OUTPUT);
+
+
+int andResult irValue & buttonValue;
+Serial.print("IR=");
+
+}
+
+Serial.begin(9600);
+
+Serial.println("Logic Gate Practical Starte
+
+void loop() {
+
+// Read sensor values
+
+int irValue = digitalRead(irSensorPin);
+
+int buttonValue = IdigitalRead(buttonPin);
+
+// Perform logic operations
+
+int orResult = irValue | buttonValue;
+
+int xorResult = irValue buttonValue;
+
+// Control LED based on AND result
+
+digitalWrite(ledPin, andResult);
+
+// Output results to Serial Monitor
+
+Serial.print(irValue);
+
+ Serial.print(" | Button=");
+
+ Serial.print(buttonValue);
+
+ Serial.print(" | AND=");
+
+ Serial.print(andResult);
+
+ Serial.print(" | OR=");
+
+Serial.print(orResult);
+
+Serial.print(" | XOR=");
+
+
+Serial.println(xorResult);
+
+delay(500); // Delay for readability
+
+40 }
